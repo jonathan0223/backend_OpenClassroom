@@ -1,6 +1,15 @@
 const express = require('express');
+const mongoose = require('mongoose')
 
 const app = express();
+
+//Connexion à la base de données
+mongoose.connect('mongodb+srv://matondolewis79:impact1111@cluster0.lewcgn8.mongodb.net/?retryWrites=true&w=majority',
+  { useNewUrlParser: true,
+    useUnifiedTopology: true })
+  .then(() => console.log('Connexion à MongoDB réussie !'))
+  .catch(() => console.log('Connexion à MongoDB échouée !'));
+
 app.use(express.json());
 
 // Solution du problème lié au CORS 
